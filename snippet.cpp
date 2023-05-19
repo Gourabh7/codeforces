@@ -49,7 +49,7 @@ int min(int a,int b){ if(a<b)return a;return b;}
 int gcd(int a, int b) { return b?gcd(b,a%b):a;}  
 int lcm(int a, int b) { return a/gcd(a,b)*b;} 
 
-int F[1000001];int C(int n, int k) {if(k>n) {return 0;}int res = F[n]; res = (res*bin(F[k],mod-2,mod))%mod;res = (res*bin(F[n-k],mod-2,mod))%mod; return res;}
+int F[1000001];int C(int n, int k) {if(k>n) {return 0;}int res = F[n]%mod; res = (res*bin(F[k],mod-2,mod))%mod;res = (res*bin(F[n-k],mod-2,mod))%mod; return res%mod;}
 
 int phi[1000001];
 void init(int maxN) { for(int i = 1; i <= maxN; i++) phi[i] = i;   for(int i = 2;i<= maxN;i++) { if(phi[i]==i) {for(int j = i;j<=maxN;j+=i) {phi[j]/=i;phi[j]*=(i-1);} }}}
